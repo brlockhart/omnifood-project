@@ -1,0 +1,782 @@
+/* 
+
+**It is a good idea to use this section (or a notepad) to keep track of all the typography you have currently used in your project. This would be things like font-sizes/weights, colors, border-radius, white-space sizes, shadows, line-height, etc.
+
+--- TYPOGRAPHY SYSTEM IN NOTES ---
+-Font Size
+-Font Weight
+-Line Height
+
+--- COLORS --- (either provided by client or generate them as needed)
+- PRIMARY: #e67e22
+- TINTS: #FDF3ED #EFA96C(<used in gradient)
+- SHADES:#CA6A16
+- ACCENTS:
+- GREYS:
+#767676 (lightest grey allowed on white)
+#555
+#333
+#6F6F6F /* lisghtest grey allowed on FDF3ED */
+/*
+--- IMAGES --- (Jonas found all the images for this from Unsplash.com, but it is all AI garbage now)
+diverseUI.com was the only halfway decent alternative
+
+--- SHADOWS --- (generate as building)
+box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.07);
+
+--- BORDER RADIUS ---
+10px
+12px
+
+--- WHITE SPACE ---
+-Spacing System: 2, 4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 128
+
+---LETTER SPACING---
+Deafult: 1
+Small: 1.05
+Medium 1.2
+
+
+*/
+
+/**********************************/
+/* --------Main/Reusable Styles-------- */
+/**********************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  overflow-x: hidden;
+}
+strong {
+  font-weight: 500;
+}
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+.margin-bot-md {
+  margin-bottom: 4.8rem !important;
+}
+.container {
+  max-width: 120rem;
+  padding: 0 9rem;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 5.4rem;
+}
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+.grid-two-cols {
+  grid-template-columns: 1fr 1fr;
+}
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-four-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-five-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-center-vertical {
+  align-items: center;
+}
+.heading-secondary {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 9.6rem;
+}
+.heading-tertiary {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+.sub-heading {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.75px;
+  color: #ca6a16;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+/************************/
+/* --Mobile Nav-- */
+/************************/
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+/**********************************/
+/* --------Hero Section-------- */
+/**********************************/
+
+.section-hero {
+  background-color: #fdf3ed;
+  padding: 3.2rem 0 9.6rem 0;
+}
+.heading-primary {
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #333;
+  letter-spacing: -0.5px; /*is very small and doesn't need to scale so we use px instead of rem*/
+  margin-bottom: 3.2rem;
+}
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: 4.8rem;
+}
+.hero-image {
+  max-width: 100%;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* padding: 0 8rem; */
+  max-width: 130rem;
+  margin: 0 auto;
+  align-items: center;
+  gap: 9.6rem;
+}
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 1.6rem 3.2rem;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s;
+
+  /* Only for .btn itself */
+  border: none;
+  cursor: pointer;
+}
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+.btn--full:hover,
+.btn--full:active {
+  background-color: #ca6a16;
+  color: #fff;
+}
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #f5f5f5;
+  color: #555;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.btn--form {
+  background-color: #371c06;
+  color: #ffebda;
+  align-self: end;
+  padding: 1.2rem;
+}
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+.delivered-meals {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 8rem;
+}
+.delivered-imgs {
+  display: flex;
+}
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem;
+  border: 3px solid #fdf3ed;
+}
+.delivered-imgs img:last-child {
+  margin: 0;
+}
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.delivered-text span {
+  color: #ca6a16;
+  font-weight: 700;
+}
+
+/**********************************/
+/* --------Header-------- */
+/**********************************/
+.logo {
+  height: 2.2rem;
+}
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fdf3ed;
+  /* use a fixed height so the header can be sticky */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+/**********************************/
+/* --------Navigation-------- */
+/**********************************/
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 4.8rem;
+  align-items: center;
+}
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #ca6a16;
+  transition: all 0.3s;
+}
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #e67e22;
+  transition: background-color 0.3s;
+  color: #fff;
+}
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #ca6a16;
+}
+
+/**********************************/
+/* --------How Omnifood works-------- */
+/**********************************/
+
+.section-how {
+  padding: 9.6rem 0;
+}
+.step-img {
+  width: 40%;
+}
+.step-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.step-img-box::before {
+  content: "";
+  display: block;
+  width: 70%;
+  padding-bottom: 70%;
+  border-radius: 50%;
+  background-color: #fcf3eb;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+.step-img-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 50%;
+  padding-bottom: 50%;
+  border-radius: 50%;
+  background-color: #f5dac2;
+  z-index: -1;
+}
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+.step-text-box {
+}
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 1.2rem;
+}
+
+/**********************************/
+/* --------featured in section-------- */
+/**********************************/
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+.logos img {
+  height: 3.2rem;
+  filter: brightness(0);
+  opacity: 50%;
+}
+/**********************************/
+/* --------Meal List Cards-------- */
+/**********************************/
+.section-meals {
+  padding: 9.6rem 0;
+}
+.heading-meals {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  text-align: center;
+}
+.meal {
+  /* background-color: #fdf3ed; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.meal:hover {
+  transform: translate(0, -1.2rem);
+  box-shadow: 0 3.4rem 5.8rem rgba(0, 0, 0, 0.06);
+}
+.meal-content {
+  padding: 2.4rem 3.6rem 3.6rem 3.6rem;
+}
+.meal-img {
+  width: 100%;
+}
+.meal-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3.2rem;
+}
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meal-attribute {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.meal-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #ca6a16;
+}
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+}
+.tag--vegetarian {
+  background-color: #77b143;
+}
+.tag--vegan {
+  background-color: #eaf292;
+}
+.tag--paleo {
+  background-color: #f2c2bb;
+}
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+.list {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #ca6a16;
+}
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+.link:hover,
+.link:active {
+  color: #ca6a16;
+  border-bottom: 1px solid transparent;
+}
+/**********************************/
+/* -----Testimonials & Gallery----- */
+/**********************************/
+.section-testimonials {
+  background-color: #fdf3ed;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+}
+.testimonials-container {
+  padding: 9.6rem;
+  align-self: center;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+/* .heading--testionial {
+  margin-bottom: 4.8rem;
+} */
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+  align-content: center;
+  justify-content: start;
+}
+.gallery-item {
+  overflow: hidden;
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  transition: all 0.4s;
+}
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+/**********************************/
+/* -----Pricing----- */
+/**********************************/
+.section-pricing {
+  padding: 8.2rem 0;
+}
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.pricing-plan {
+  border-radius: 10px;
+  width: 75%;
+}
+.pricing-plan--starter {
+  justify-self: end;
+  border: 2px solid #fdf3ed;
+  padding: 4.6rem;
+}
+.pricing-plan--complete {
+  background-color: #fdf3ed;
+  padding: 4.8rem;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #edc639;
+  color: #333;
+  top: 6%;
+  right: -20%;
+  padding: 0.8rem 8.2rem;
+  transform: rotate(45deg);
+}
+.plan-name {
+  color: #ca6a16;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-right: 0.8rem;
+}
+.plan-text {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+.plan-signup {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+/**********************************/
+/* -----Omnifood Features----- */
+/**********************************/
+.feature {
+}
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+  padding: 1.6rem;
+  background-color: #fcf3eb;
+  margin-bottom: 3.2rem;
+}
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+/**********************************/
+/* -----CTA SECTION----- */
+/**********************************/
+.section-cta {
+  padding: 4.8rem 0 12.8rem 0;
+}
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.17);
+  border-radius: 10px;
+  background-image: linear-gradient(to right bottom, #efa96c, #e67e22);
+  overflow: hidden;
+}
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #371c06;
+}
+.cta .heading-secondary {
+  color: #371c06;
+  margin-bottom: 3.2rem;
+}
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+.cta-img-box {
+  background-image: linear-gradient(to right bottom, hsla(28, 80%, 68%, 0.331), hsla(28, 80%, 52%, 0.296)),
+    url("../img/eating.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf3ed;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.151);
+}
+.cta-form input::placeholder {
+  color: #aaa;
+}
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.4rem #ce650963;
+}
+.cta *:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.4rem #fddfc485;
+}
+/**********************************/
+/* ------------Footer------------ */
+/**********************************/
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+.grid--footer {
+  grid-template-columns: 1.6fr 1.6fr 1fr 1fr 1fr;
+}
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.copyright {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  margin-top: auto;
+  color: #767676;
+}
+.logo-column {
+  display: flex;
+  flex-direction: column;
+}
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.address {
+  margin-bottom: 2.4rem;
+}
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3;
+}
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}
+/**********************************/
+/* --------Media Queries--------- */
+/**********************************/
+
+/* if max width is 1200 or less, apply this styling */
